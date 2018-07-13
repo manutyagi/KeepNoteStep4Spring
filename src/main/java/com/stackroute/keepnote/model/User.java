@@ -2,6 +2,9 @@ package com.stackroute.keepnote.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /*
  * The class "User" will be acting as the data model for the User Table in the database. 
  * Please note that this class is annotated with @Entity annotation. 
@@ -9,9 +12,14 @@ import java.util.Date;
  * If it finds any, then it will begin the process of looking through that particular 
  * Java object to recreate it as a table in your database.
  */
-
+@Entity
 public class User {
-
+	@Id
+	private String userId;
+	private String userName;
+	private String userPassword;
+	private String userMobile;
+	private Date userAddedDate;
 	/*
 	 * This class should have five fields (userId,userName,
 	 * userPassword,userMobile,userAddedDate). Out of these five fields, the field
@@ -21,46 +29,65 @@ public class User {
 	 * the user but should be always initialized with the system date
 	 */
 
-	public User() {
-
+	
+	public User(String userId, String userName, String userPassword, String userMobile, Date userAddedDate) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.userPassword = userPassword;
+		this.userMobile = userMobile;
+		this.userAddedDate = userAddedDate;
 	}
 
-	public User(String string, String string1, String string2, String string3, Date date) {
-
+	public User() {
+		super();
 	}
 
 	public String getUserId() {
-		return null;
+		return userId;
 	}
 
-	public void setUserId(String string) {
-
+	
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
-	public void setUserName(String string) {
+	public String getUserName() {
+		return userName;
+	}
 
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getUserPassword() {
-		return null;
-
+		return userPassword;
 	}
 
-	public void setUserPassword(String string) {
-
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
 
 	public String getUserMobile() {
-		return null;
-
+		return userMobile;
 	}
 
-	public void setUserMobile(String string) {
-
+	public void setUserMobile(String userMobile) {
+		this.userMobile = userMobile;
 	}
 
-	public void setUserAddedDate(Date date) {
-
+	public Date getUserAddedDate() {
+		return userAddedDate;
 	}
 
+	public void setUserAddedDate(Date userAddedDate) {
+		this.userAddedDate = userAddedDate;
+	}
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", userPassword=" + userPassword + ", userMobile="
+				+ userMobile + ", userAddedDate=" + userAddedDate + "]";
+	}
+	
 }
